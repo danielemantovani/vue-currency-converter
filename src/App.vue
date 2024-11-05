@@ -1,6 +1,12 @@
 <script>
 
+import CurrencyInput from './components/CurrencyInput.vue';
+
 export default{
+
+    components:{
+        CurrencyInput,
+    },
 
     data(){
 
@@ -13,7 +19,15 @@ export default{
 </script>
 
 <template>
-
+    
+    <div>
+        <CurrencyInput/>
+    </div>
+    
+    <div>
+        <CurrencyInput />
+    </div>
+    
 </template>
 
 <style lang="scss">
