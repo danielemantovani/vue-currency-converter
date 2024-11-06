@@ -11,7 +11,7 @@ export default{
     data(){
 
         return{
-
+            currencies: ['EUR', 'USD']
         }
     }
 }
@@ -19,17 +19,17 @@ export default{
 </script>
 
 <template>
-    
+
     <div>
-        <CurrencyInput/>
-    </div>
-    
-    <div>
-        <CurrencyInput />
+        <CurrencyInput :currencies= "currencies" />
     </div>
     
 </template>
 
 <style lang="scss">
+
+    div{
+        text-align: center;
+    }
 
 </style>
