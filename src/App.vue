@@ -13,6 +13,16 @@ export default{
         return{
             currencies: ['EUR', 'USD']
         }
+
+    },
+
+    methods: {
+
+        // Utilizzando la tecnica del destructuring (parentesi graffe nella dichiarazione dei parametri della funzione) rendo più chiaro e leggibile il codice e semplifico l'accesso ai valori
+        listenAmountUpdate({ amount, currency }) {
+        console.log("Valore aggiornato:", amount, "Valuta selezionata:", currency);
+        },
+
     }
 }
 
@@ -21,7 +31,7 @@ export default{
 <template>
 
     <div>
-        <CurrencyInput :currencies= "currencies" />
+        <CurrencyInput :currencies= "currencies" @update-amount ="listenAmountUpdate" />
     </div>
     
 </template>

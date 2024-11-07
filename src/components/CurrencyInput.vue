@@ -11,14 +11,21 @@ export default{
     data(){
 
         return{
-            
+            selectedCurrency: 'EUR',
         }
     },
 
     methods: {
+        emitAmount(){
+            this.$emit("update-amount", { 
+                amount: this.amount, 
+                currency: this.selectedCurrency 
+            });
+        }
+    },
         
-    }
 }
+
 
 </script>
 
@@ -26,21 +33,23 @@ export default{
 
     <div>
 
+        <p>{{ amount }} {{ selectedCurrency }}</p>
+
         <input 
         type= "number"
         v-model.trim= "amount"
-        @input=""
+        @input="emitAmount"
         placeholder="0,00"
         >
 
-        <p>{{ amount }}</p>
-
         <select 
         name="" 
-        id=""
+        @change="emitAmount"
         v-model="selectedCurrency"
         >
+
             <option :value="currency" v-for="currency in currencies">{{ currency }}</option>
+
         </select>
 
     </div>
