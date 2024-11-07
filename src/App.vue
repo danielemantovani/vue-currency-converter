@@ -1,5 +1,6 @@
 <script>
 
+import axios from 'axios';
 import CurrencyInput from './components/CurrencyInput.vue';
 
 export default{
@@ -11,9 +12,20 @@ export default{
     data(){
 
         return{
-            currencies: ['EUR', 'USD']
+            currencies: [],
         }
 
+    },
+
+    mounted(){
+        axios.get('https://api.frankfurter.app/currencies')
+        .then(resp => {
+            this.currencies = Object.keys(resp.data);
+        })
+
+        .catch(error =>{
+            console.log('Errore nel recupero delle valute', error)
+        })
     },
 
     methods: {
